@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="A-FUTMs - Full-service IT and digital agency. Affordable monthly website packages, e-commerce, CMS, SEO & more.">
+  <title>A-FUTMs | Modern Monthly Websites & Digital Agency</title>
+  <!-- Bootstrap 5 + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    /* ----- GLOBAL RESET & VARIABLES (Aligned Design System) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background: #ffffff;
+    }
+    
+    :root {
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --primary-light: #ffedd5;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light-bg: #f8fafc;
+    }
+    
+    .text-primary-custom {
+      color: var(--primary) !important;
+    }
+    
+    .bg-gradient-orange {
+      background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%);
+    }
+    
+    .btn-orange {
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+    }
+    
+    .btn-orange:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+      color: white;
+    }
+    
+    .btn-outline-orange {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-orange:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .badge-orange {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.3px;
+    }
+    
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 0.7rem 0;
+    }
+    
+    .nav-link-custom {
+      font-weight: 500;
+      color: var(--dark);
+      transition: 0.2s;
+    }
+    
+    .nav-link-custom:hover, .nav-link-custom.active {
+      color: var(--primary);
+    }
+    
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .section-padding {
+      padding: 80px 0;
+    }
+    
+    /* ----- SLIDER MODERN (Glassmorphism + Animation) ----- */
+    #planSlider {
+      position: relative;
+      padding: 10px 5px 30px 5px;
+    }
+    
+    .carousel-inner {
+      border-radius: 32px;
+      overflow: hidden;
+    }
+    
+    .plan-slider-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 32px;
+      padding: 2rem 1.8rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid rgba(249, 115, 22, 0.15);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(249,115,22,0.05);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .plan-slider-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .plan-slider-card:hover::before {
+      left: 100%;
+    }
+    
+    .plan-slider-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 45px -12px rgba(249, 115, 22, 0.25);
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+    
+    .plan-slider-card.featured-slide {
+      background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+      border-top: 4px solid var(--primary);
+      position: relative;
+      box-shadow: 0 25px 40px -12px rgba(249,115,22,0.2);
+    }
+    
+    .plan-slider-card.featured-slide::after {
+      content: '⭐ MOST POPULAR';
+      position: absolute;
+      top: 16px;
+      right: -28px;
+      background: linear-gradient(95deg, #f97316, #ea580c);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 6px 35px;
+      transform: rotate(45deg);
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    
+    .slider-price {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    
+    .plan-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .plan-feature-list li {
+      padding: 10px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #f1f5f9;
+      font-weight: 500;
+    }
+    
+    .plan-feature-list i {
+      color: var(--primary);
+      font-size: 1.1rem;
+      background: var(--primary-light);
+      border-radius: 50%;
+      padding: 3px;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 46px;
+      height: 46px;
+      background: white;
+      border-radius: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 1;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(249,115,22,0.2);
+    }
+    
+    .carousel-control-prev { left: -20px; }
+    .carousel-control-next { right: -20px; }
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(48%) sepia(95%) saturate(600%) hue-rotate(350deg);
+    }
+    
+    .carousel-indicators {
+      bottom: -45px;
+      gap: 8px;
+    }
+    
+    .carousel-indicators button {
+      width: 10px;
+      height: 10px;
+      border-radius: 20px;
+      background-color: #cbd5e1;
+      transition: all 0.3s ease;
+    }
+    
+    .carousel-indicators button.active {
+      background-color: var(--primary);
+      width: 28px;
+    }
+    
+    /* ----- PACKAGE CARDS (Unified design) ----- */
+    .package-card {
+      transition: all 0.35s ease;
+      border-radius: 28px;
+      position: relative;
+    }
+    
+    .package-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12) !important;
+    }
+    
+    .featured-package {
+      border-top: 4px solid var(--primary);
+      position: relative;
+    }
+    
+    .glass-card {
+      background: white;
+      border-radius: 28px;
+      transition: all 0.3s;
+      border: 1px solid rgba(249,115,22,0.1);
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(249,115,22,0.3);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+    }
+    
+    .why-icon-box {
+      background: var(--primary-light);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      margin-bottom: 12px;
+    }
+    
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      transition: 0.2s;
+      display: inline-block;
+    }
+    
+    .contact-icon {
+      background: var(--primary-light);
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .social-icon-circle {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      background: #f1f5f9;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      color: var(--dark);
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    
+    .social-icon-circle:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .form-control-custom, .form-control {
+      border-radius: 60px !important;
+      padding: 12px 20px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    textarea.form-control {
+      border-radius: 24px !important;
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .comparison-table th, .comparison-table td {
+      padding: 14px 12px;
+      vertical-align: middle;
+    }
+    
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: rippleAnim 0.6s linear;
+      pointer-events: none;
+    }
+    
+    @keyframes rippleAnim {
+      to { transform: scale(6); opacity: 0; }
+    }
+    
+    footer {
+      background: #f8fafc;
+      border-top: 1px solid #eef2ff;
+    }
+    
+    .contact-info-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-info-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+    
+    /* ----- PORTFOLIO MODERN (Aligned with full design) ----- */
+    .portfolio-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem 2rem;
+      position: relative;
+    }
+    
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding: 1rem 0 0.5rem;
+    }
+    
+    .portfolio-header .badge {
+      display: inline-block;
+      background: rgba(0, 110, 230, 0.08);
+      backdrop-filter: blur(2px);
+      padding: 0.35rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0066cc;
+      margin-bottom: 1rem;
+      border: 0.5px solid rgba(0,110,230,0.2);
+    }
+    
+    .portfolio-header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1A2C3E 0%, #2C5368 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    
+    .portfolio-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0,0,0,0.02);
+      transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+      cursor: pointer;
+      border: 1px solid rgba(226, 232, 240, 0.7);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 45px -15px rgba(0, 32, 64, 0.2);
+      border-color: rgba(0, 110, 230, 0.3);
+      background: #ffffff;
+    }
+    
+    .card-image {
+      width: 100%;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.5s ease;
+    }
+    
+    .portfolio-card:hover .card-image {
+      transform: scale(1.02);
+    }
+    
+    .card-content {
+      padding: 1.5rem 1.5rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0f2b3b;
+      transition: color 0.2s;
+    }
+    
+    .portfolio-card:hover .card-title {
+      color: #0066cc;
+    }
+    
+    .card-description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #4a5568;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    
+    .card-link-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #0066cc;
+      background: rgba(0,110,230,0.05);
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      width: fit-content;
+      transition: all 0.2s;
+    }
+    
+    .portfolio-card:hover .card-link-hint {
+      background: rgba(0,110,230,0.12);
+      gap: 8px;
+    }
+    
+    .card-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: #5f7f9e;
+      margin-bottom: 0.65rem;
+      display: inline-block;
+      background: #eef2f8;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      width: fit-content;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-control-prev, .carousel-control-next { display: none; }
+      .plan-slider-card { padding: 1.5rem; }
+      .slider-price { font-size: 2rem; }
+      .hero-title { font-size: 2.2rem; }
+      .section-padding { padding: 50px 0; }
+      .portfolio-wrapper { padding: 1.2rem; }
+      .portfolio-header h1 { font-size: 2.2rem; }
+      .portfolio-grid { gap: 1.25rem; }
+    }
+    
+    .footer-link {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .footer-link:hover { color: var(--primary); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-2" href="#" style="color: var(--primary);">A-FUTMs</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <i class="bi bi-list fs-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 align-items-center">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#packages">Packages</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact">Contact</a></li>
+        <li class="nav-item"><a href="#contact" class="btn btn-outline-orange ms-2">Get Quote <i class="bi bi-arrow-right-short"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero + SLIDER -->
+<section id="home" class="bg-gradient-orange section-padding" style="padding-top: 80px; padding-bottom: 80px;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge-orange d-inline-block mb-3"><i class="bi bi-stars me-1"></i> No upfront huge costs — monthly plans</span>
+        <h1 class="hero-title mb-4">Affordable <span class="text-primary-custom">Monthly Websites</span><br> Built for Growth</h1>
+        <p class="lead text-secondary mb-4">From single page to advanced e‑commerce: domain, hosting, SSL, support all included. Start today with low setup fee.</p>
+        <div class="d-flex flex-wrap gap-3 mb-4">
+          <a href="#packages" class="btn btn-orange btn-lg px-4"><i class="bi bi-cart-check me-2"></i>Explore Packages</a>
+          <a href="#contact" class="btn btn-outline-orange btn-lg px-4"><i class="bi bi-chat-dots me-2"></i>Free Consultation</a>
+        </div>
+        <div class="row mt-4">
+          <div class="col-4"><div class="stat-number" data-count="150">150+</div><p class="text-secondary">Websites Launched</p></div>
+          <div class="col-4"><div class="stat-number" data-count="98">98%</div><p class="text-secondary">Satisfied Clients</p></div>
+          <div class="col-4"><div class="stat-number" data-count="24">24/7</div><p class="text-secondary">Support</p></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div id="planSlider" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#planSlider" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#planSlider" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#planSlider" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#planSlider" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#planSlider" data-bs-slide-to="4"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><div class="plan-slider-card"><div class="text-center mb-3"><i class="bi bi-filetype-html fs-1 text-primary-custom"></i></div><h3 class="fw-bold fs-3 text-center">Single Page</h3><div class="text-center mb-3"><span class="slider-price">£49</span> <small>setup</small><br><span class="fs-2 fw-bold text-primary-custom">£6.99</span> <small>/month</small></div><ul class="plan-feature-list"><li><i class="bi bi-check-circle-fill"></i> Custom responsive design</li><li><i class="bi bi-check-circle-fill"></i> 1 Domain + Hosting + SSL</li><li><i class="bi bi-check-circle-fill"></i> Contact form & Google Maps</li><li><i class="bi bi-check-circle-fill"></i> Basic SEO & speed optimization</li></ul><a href="#contact" class="btn btn-outline-orange w-100">Choose Plan →</a></div></div>
+            <div class="carousel-item"><div class="plan-slider-card"><div class="text-center mb-3"><i class="bi bi-files fs-1 text-primary-custom"></i></div><h3 class="fw-bold fs-3 text-center">Multi-Page</h3><div class="text-center mb-3"><span class="slider-price">£179</span> <small>setup</small><br><span class="fs-2 fw-bold text-primary-custom">£9.99</span> <small>/month</small></div><ul class="plan-feature-list"><li><i class="bi bi-check-circle-fill"></i> Up to 10 custom pages + blog</li><li><i class="bi bi-check-circle-fill"></i> Advanced contact forms & gallery</li><li><i class="bi bi-check-circle-fill"></i> Multiple business emails</li><li><i class="bi bi-check-circle-fill"></i> Priority support</li></ul><a href="#contact" class="btn btn-outline-orange w-100">Choose Plan →</a></div></div>
+            <div class="carousel-item"><div class="plan-slider-card featured-slide"><div class="text-center mb-3"><i class="bi bi-database-gear fs-1 text-primary-custom"></i></div><h3 class="fw-bold fs-3 text-center">CMS Website</h3><div class="text-center mb-3"><span class="slider-price">£249</span> <small>setup</small><br><span class="fs-2 fw-bold text-primary-custom">£19.99</span> <small>/month</small></div><ul class="plan-feature-list"><li><i class="bi bi-check-circle-fill"></i> Full CMS admin dashboard</li><li><i class="bi bi-check-circle-fill"></i> Add/edit pages & blog posts</li><li><i class="bi bi-check-circle-fill"></i> Built‑in SEO tools & analytics</li><li><i class="bi bi-check-circle-fill"></i> Automated backups & security</li></ul><a href="#contact" class="btn btn-orange w-100">Get CMS Plan →</a></div></div>
+            <div class="carousel-item"><div class="plan-slider-card"><div class="text-center mb-3"><i class="bi bi-shop fs-1 text-primary-custom"></i></div><h3 class="fw-bold fs-3 text-center">Standard E‑Comm</h3><div class="text-center mb-3"><span class="slider-price">£199</span> <small>setup</small><br><span class="fs-2 fw-bold text-primary-custom">£49</span> <small>/month</small></div><ul class="plan-feature-list"><li><i class="bi bi-check-circle-fill"></i> Product/category management</li><li><i class="bi bi-check-circle-fill"></i> Secure checkout & payment gateway</li><li><i class="bi bi-check-circle-fill"></i> Order management & inventory</li><li><i class="bi bi-check-circle-fill"></i> Coupon system & shipping</li></ul><a href="#contact" class="btn btn-outline-orange w-100">Start Selling →</a></div></div>
+            <div class="carousel-item"><div class="plan-slider-card"><div class="text-center mb-3"><i class="bi bi-graph-up-arrow fs-1 text-primary-custom"></i></div><h3 class="fw-bold fs-3 text-center">Advanced E‑Comm</h3><div class="text-center mb-3"><span class="slider-price">£499</span> <small>setup</small><br><span class="fs-2 fw-bold text-primary-custom">£80</span> <small>/month</small></div><ul class="plan-feature-list"><li><i class="bi bi-check-circle-fill"></i> Unlimited products, advanced coupons</li><li><i class="bi bi-check-circle-fill"></i> Abandoned cart recovery & multi-currency</li><li><i class="bi bi-check-circle-fill"></i> Advanced reports & analytics</li><li><i class="bi bi-check-circle-fill"></i> 24/7 Dedicated support</li></ul><a href="#contact" class="btn btn-outline-orange w-100">Go Enterprise →</a></div></div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#planSlider" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#planSlider" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section-padding">
+  <div class="container"><div class="text-center mb-5 reveal"><span class="badge-orange">Our Expertise</span><h2 class="display-5 fw-bold mt-3">Full‑service <span style="color: var(--primary);">Digital Agency</span></h2></div>
+  <div class="row g-4"><div class="col-md-6 col-lg-3 reveal"><div class="glass-card p-4 h-100 text-center"><i class="bi bi-browser-chrome fs-1 text-primary-custom"></i><h4 class="mt-3 fw-bold">Web Design</h4><p class="small">Responsive, modern, conversion-focused.</p></div></div>
+  <div class="col-md-6 col-lg-3 reveal"><div class="glass-card p-4 h-100 text-center"><i class="bi bi-wordpress fs-1 text-primary-custom"></i><h4 class="mt-3 fw-bold">CMS & WP</h4><p class="small">Full control over content.</p></div></div>
+  <div class="col-md-6 col-lg-3 reveal"><div class="glass-card p-4 h-100 text-center"><i class="bi bi-cart fs-1 text-primary-custom"></i><h4 class="mt-3 fw-bold">E‑commerce</h4><p class="small">Secure online stores.</p></div></div>
+  <div class="col-md-6 col-lg-3 reveal"><div class="glass-card p-4 h-100 text-center"><i class="bi bi-megaphone fs-1 text-primary-custom"></i><h4 class="mt-3 fw-bold">SEO & Marketing</h4><p class="small">Data-driven growth.</p></div></div></div></div>
+</section>
+
+<!-- ========== NEW PACKAGES SECTION (Monthly subscription plans inspired by reference) ========== -->
+<section id="packages" class="section-padding bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge-orange"><i class="bi bi-tags-fill me-1"></i> Flexible monthly plans</span>
+      <h2 class="display-5 fw-bold mt-3">Our <span style="color: var(--primary);">Website Packages</span></h2>
+      <p class="text-secondary fs-5 mx-auto" style="max-width: 720px;">Low setup fees, all-inclusive monthly pricing with domain, hosting, SSL and maintenance.</p>
+    </div>
+
+    <!-- 5 core monthly packages: Single Page, Multi-Page, CMS, Standard E‑Commerce, Advanced E‑Commerce -->
+    <div class="row g-4">
+      <!-- Single Page Website -->
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card h-100 bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-2"><i class="bi bi-filetype-html fs-1 text-primary-custom"></i></div>
+          <h3 class="fw-bold fs-3">Single Page</h3>
+          <div class="mb-3"><span class="display-6 fw-bold text-primary-custom">£49</span> <span class="text-muted">setup</span><br><span class="fs-4 fw-bold">£6.99</span> <span class="text-muted">/month</span></div>
+          <p class="text-secondary small">Domain, hosting, SSL included. Perfect for startups & personal brands.</p>
+          <hr>
+          <ul class="list-unstyled text-start small mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Custom responsive single-page design</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> 1 Domain + Hosting + SSL</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Contact form & Google Maps</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Basic SEO & speed optimization</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Social media links + 1 business email</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Monthly support & updates</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-orange w-100">Choose Plan <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Multi-Page Website -->
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card h-100 bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-2"><i class="bi bi-files fs-1 text-primary-custom"></i></div>
+          <h3 class="fw-bold fs-3">Multi-Page</h3>
+          <div class="mb-3"><span class="display-6 fw-bold text-primary-custom">£179</span> <span class="text-muted">setup</span><br><span class="fs-4 fw-bold">£9.99</span> <span class="text-muted">/month</span></div>
+          <p class="text-secondary small">Everything in Single + extra pages, blog section, advanced forms.</p>
+          <hr>
+          <ul class="list-unstyled text-start small mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Up to 10 custom pages + blog ready</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Advanced contact forms & gallery</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Testimonials & SEO structure</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Multiple business email addresses</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Performance & monthly backups</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Priority support</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-orange w-100">Choose Plan</a>
+        </div>
+      </div>
+
+      <!-- CMS Website (most popular) -->
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card featured-package h-100 bg-white p-4 rounded-4 shadow-lg" style="border-top: 5px solid #f97316;">
+          <span class="badge-orange position-absolute top-0 start-50 translate-middle mt-2">Most Popular</span>
+          <div class="mb-2 mt-2"><i class="bi bi-database-gear fs-1 text-primary-custom"></i></div>
+          <h3 class="fw-bold fs-3">CMS Website</h3>
+          <div class="mb-3"><span class="display-6 fw-bold text-primary-custom">£249</span> <span class="text-muted">setup</span><br><span class="fs-4 fw-bold">£19.99</span> <span class="text-muted">/month</span></div>
+          <p class="text-secondary small">Full Content Management System (WordPress or custom). Full control.</p>
+          <hr>
+          <ul class="list-unstyled text-start small mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Everything in Multi-Page, PLUS</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Full CMS admin dashboard</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Add/edit pages & blog posts anytime</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Media library + user role management</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Built‑in SEO tools & analytics</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Automated backups & security monitoring</li>
+          </ul>
+          <a href="#contact" class="btn btn-orange w-100">Get CMS Plan</a>
+        </div>
+      </div>
+
+      <!-- Standard E-Commerce -->
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card h-100 bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-2"><i class="bi bi-shop fs-1 text-primary-custom"></i></div>
+          <h3 class="fw-bold fs-3">Standard E‑Comm</h3>
+          <div class="mb-3"><span class="display-6 fw-bold text-primary-custom">£199</span> <span class="text-muted">setup</span><br><span class="fs-4 fw-bold">£49</span> <span class="text-muted">/month</span></div>
+          <p class="text-secondary small">Fully functional online store with products & payment gateway.</p>
+          <hr>
+          <ul class="list-unstyled text-start small mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Everything in CMS, PLUS e‑commerce</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Product/category management</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Shopping cart & secure checkout</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> 1 Payment gateway integration</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Order management & inventory</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Coupon system & shipping setup</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-orange w-100">Start Selling</a>
+        </div>
+      </div>
+
+      <!-- Advanced E-Commerce + CMS -->
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card h-100 bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-2"><i class="bi bi-graph-up-arrow fs-1 text-primary-custom"></i></div>
+          <h3 class="fw-bold fs-3">Advanced E‑Comm</h3>
+          <div class="mb-3"><span class="display-6 fw-bold text-primary-custom">£499</span> <span class="text-muted">setup</span><br><span class="fs-4 fw-bold">£80</span> <span class="text-muted">/month</span></div>
+          <p class="text-secondary small">Scalable enterprise e‑commerce with multi-currency & advanced analytics.</p>
+          <hr>
+          <ul class="list-unstyled text-start small mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Everything Standard E‑Comm, PLUS</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Unlimited products, advanced coupons</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Abandoned cart recovery & multi-currency</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Advanced reports & analytics dashboard</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Multiple payment gateways & priority support</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Enhanced security & disaster recovery</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-orange w-100">Go Enterprise</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Comparison Summary Table (Responsive) -->
+    <div class="mt-5 pt-4">
+      <div class="text-center mb-4">
+        <span class="badge-orange"><i class="bi bi-table me-1"></i> Quick Comparison</span>
+        <h3 class="fw-bold mt-2">Compare features across packages</h3>
+        <p class="text-secondary">All plans include domain, hosting, SSL, and ongoing maintenance.</p>
+      </div>
+      <div class="table-responsive rounded-4 shadow-sm bg-white p-2">
+        <table class="table table-hover align-middle mb-0 comparison-table">
+          <thead class="table-dark">
+            <tr><th>Feature</th><th>Single Page</th><th>Multi-Page</th><th>CMS Website</th><th>Standard E‑Comm</th><th>Advanced E‑Comm</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Setup Fee</td><td>£49</td><td>£179</td><td>£249</td><td>£199</td><td>£499</td></tr>
+            <tr><td>Monthly Cost</td><td>£6.99</td><td>£9.99</td><td>£19.99</td><td>£49</td><td>£80</td></tr>
+            <tr><td>CMS Access</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Blog / News</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Online Store</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Payment Gateways</td><td>—</td><td>—</td><td>—</td><td>1 Gateway</td><td>Multiple</td></tr>
+            <tr><td>Advanced Reports</td><td>—</td><td>—</td><td>Basic</td><td>Basic</td><td>Advanced</td></tr>
+            <tr><td>Abandoned Cart</td><td>—</td><td>—</td><td>—</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Support Level</td><td>Standard</td><td>Priority</td><td>Priority+</td><td>Priority+</td><td>24/7 Dedicated</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#contact" class="btn btn-orange px-5 py-3"><i class="bi bi-chat-dots-fill me-2"></i>Get Custom Package Advice</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section (Click-to-open external websites) -->
+<section id="portfolio" class="section-padding"><div class="container">
+  <!-- <h2 class="display-5 fw-bold mt-3">Our <span style="color: var(--primary);">Website Packages</span></h2>
+  <div class="portfolio-wrapper"><div class="portfolio-header"><div class="badge">✦ curated showcase</div><h1>Digital frontier</h1>
+    <p>Creative projects that blend innovation & elegance — click any card to explore the live website in a new tab.</p>
+  </div> -->
+   <div class="text-center mb-5">
+      <span class="badge-orange"><i class="bi bi-tags-fill me-1"></i> curated showcases</span>
+      <h2 class="display-5 fw-bold mt-3">Our <span style="color: var(--primary);">Portfolio</span></h2>
+      <p class="text-secondary fs-5 mx-auto" style="max-width: 720px;">Creative projects that blend innovation & elegance — click any card to explore the live website in a new tab.</p>
+    </div>
+
+  <div class="portfolio-grid" id="portfolioGrid">
+    <!-- Portfolio items will be dynamically injected via JavaScript -->
+  </div>
+  <div class="design-credit">
+    ✦ interactive portfolio — each box opens external project in new tab ✦
+  </div>
+</div>
+</div>
+</section>
+
+<!-- About + Why us -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6 reveal">
+        <div class="bg-light p-5 rounded-4 h-100">
+          <span class="badge-orange">About A-FUTMs</span>
+          <h2 class="fw-bold mt-3">Innovation-led agency</h2>
+          <p>We build high-performance websites & digital solutions with transparent monthly pricing. Trusted by 150+ businesses.</p>
+          <p class="mb-0">Our team combines creative design with technical excellence, ensuring your brand stands out in the digital landscape. From startups to enterprises, we deliver scalable solutions that drive real results.</p>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="bg-white border p-5 rounded-4 h-100 shadow-sm">
+          <h3 class="fw-bold mb-4">Why choose monthly plans?</h3>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="why-icon-box"><i class="bi bi-currency-pound"></i></div>
+              <h5 class="fw-bold">Low Entry Cost</h5>
+              <p class="small text-secondary">No large upfront investment — start with minimal setup fee.</p>
+            </div>
+            <div class="col-sm-6">
+              <div class="why-icon-box"><i class="bi bi-cloud-check"></i></div>
+              <h5 class="fw-bold">All-inclusive</h5>
+              <p class="small text-secondary">Domain, hosting, SSL, maintenance & support included.</p>
+            </div>
+            <div class="col-sm-6">
+              <div class="why-icon-box"><i class="bi bi-arrow-repeat"></i></div>
+              <h5 class="fw-bold">Flexible Scaling</h5>
+              <p class="small text-secondary">Upgrade or downgrade anytime as your business grows.</p>
+            </div>
+            <div class="col-sm-6">
+              <div class="why-icon-box"><i class="bi bi-shield-check"></i></div>
+              <h5 class="fw-bold">Peace of Mind</h5>
+              <p class="small text-secondary">Regular backups, security updates & 24/7 monitoring.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section-padding bg-light">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="badge-orange"><i class="bi bi-envelope-paper"></i> Get in touch</span>
+      <h2 class="display-5 fw-bold mt-3">Let’s <span style="color: var(--primary);">Connect</span></h2>
+      <p class="text-secondary mx-auto" style="max-width: 600px;">Ready to elevate your digital presence? Reach out to our team for a free consultation.</p>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-5 reveal">
+        <div class="contact-info-wrapper">
+          <div class="contact-info-card d-flex gap-3 align-items-center">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><strong>Visit Us</strong><br>71 Lowwood Park, BT15 4BD, UK</div>
+          </div>
+          <div class="contact-info-card d-flex gap-3 align-items-center">
+            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><strong>Call Us</strong><br>+44 7538 956469</div>
+          </div>
+          <div class="contact-info-card d-flex gap-3 align-items-center">
+            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><strong>Email Us</strong><br>afutms@gmail.com</div>
+          </div>
+          <div class="contact-info-card">
+            <div class="mb-2"><strong>Follow Us</strong></div>
+            <div class="d-flex gap-2">
+              <a href="#" class="social-icon-circle"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon-circle"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-icon-circle"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-icon-circle"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+     <div class="col-md-7 reveal">
+  <div class="bg-white p-4 rounded-4 shadow-sm">
+    
+    <form id="quoteForm" action="https://formsubmit.co/ajax/alibutt610354@gmail.com" method="POST">
+      
+      <!-- Hidden settings -->
+      <input type="hidden" name="_subject" value="New Website Inquiry!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_autoresponse" value="Thanks for contacting us! We'll reply within 24 hours.">
+
+      <div class="row g-3">
+        
+        <div class="col-12">
+          <input type="text" name="name" id="name"
+            class="form-control form-control-custom"
+            placeholder="Full Name *" required>
+        </div>
+
+        <div class="col-12">
+          <input type="email" name="email" id="email"
+            class="form-control form-control-custom"
+            placeholder="Email Address *" required>
+        </div>
+
+        <div class="col-12">
+          <input type="tel" name="phone"
+            class="form-control form-control-custom"
+            placeholder="Phone Number">
+        </div>
+
+        <div class="col-12">
+          <select name="package" id="packageInterest"
+            class="form-control form-control-custom">
+            <option value="">Select Package Interest (Optional)</option>
+            <option>Single Page Website</option>
+            <option>Multi-Page Website</option>
+            <option>CMS Website</option>
+            <option>Standard E-Commerce</option>
+            <option>Advanced E-Commerce</option>
+            <option>Custom Solution</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <textarea name="message" id="message" rows="4"
+            class="form-control"
+            style="border-radius: 24px;"
+            placeholder="Tell us about your project..." required></textarea>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-orange w-100 py-3" id="submitBtn">
+            <i class="bi bi-send-fill me-2"></i>Send Request
+          </button>
+        </div>
+
+        <div id="formFeedback" class="text-center small mt-2"></div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pt-5 pb-4" style="background-color: #000;">
+  <div class="container text-center">
+    <a class="navbar-brand fw-bold fs-3" href="#" style="color: var(--primary); letter-spacing: 1px;">
+      A-FUTMs
+    </a>
+    <p class="mt-3 mb-4" style="color: #aaa;">
+      Monthly websites • E-commerce • CMS • SEO • 24/7 Support
+    </p>
+    <div class="d-flex justify-content-center gap-4 mb-4 flex-wrap">
+      <a href="#" class="footer-link">Privacy Policy</a>
+      <a href="#" class="footer-link">Terms of Service</a>
+      <a href="#" class="footer-link">Refund Policy</a>
+    </div>
+    <p class="small" style="color: #777;">
+      © 2026 A-FUTMs — All-inclusive digital packages. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ========== ENHANCED ANIMATIONS & INTERACTIONS ==========
+  
+  // 1. Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if(href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if(target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+  
+  // 2. Navbar background change on scroll
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // 3. Counter animation for statistics
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const animateNumbers = () => {
+    statNumbers.forEach(stat => {
+      const targetValue = stat.getAttribute('data-count');
+      if (targetValue && !stat.classList.contains('animated')) {
+        let finalNumber = parseInt(targetValue);
+        if (isNaN(finalNumber)) {
+          if (targetValue === '24') finalNumber = 24;
+          else if (targetValue === '150') finalNumber = 150;
+          else if (targetValue === '98') finalNumber = 98;
+          else finalNumber = 0;
+        }
+        let current = 0;
+        const increment = finalNumber / 50;
+        const updateCounter = () => {
+          current += increment;
+          if (current < finalNumber) {
+            let displayVal = Math.floor(current);
+            if (targetValue === '98') stat.innerText = displayVal + '%';
+            else if (targetValue === '24') stat.innerText = displayVal + '/7';
+            else stat.innerText = displayVal + '+';
+            requestAnimationFrame(updateCounter);
+          } else {
+            if (targetValue === '98') stat.innerText = finalNumber + '%';
+            else if (targetValue === '24') stat.innerText = finalNumber + '/7';
+            else stat.innerText = finalNumber + '+';
+            stat.classList.add('animated');
+          }
+        };
+        updateCounter();
+      }
+    });
+  };
+  
+  // 4. Scroll Reveal Animation (Intersection Observer)
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        if (entry.target.querySelector('.stat-number')) {
+          animateNumbers();
+        }
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+  
+  revealElements.forEach(el => revealObserver.observe(el));
+  
+  // Trigger counter if stats visible on load
+  setTimeout(() => {
+    const statsSection = document.querySelector('#home .row .row');
+    if (statsSection && statsSection.getBoundingClientRect().top < window.innerHeight) {
+      animateNumbers();
+    }
+  }, 500);
+  
+  // 5. Contact form submission with enhanced feedback
+ const form = document.getElementById("quoteForm");
+const feedback = document.getElementById("formFeedback");
+const submitBtn = document.getElementById("submitBtn");
+
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    // Show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Sending... ⏳";
+    feedback.innerHTML = "";
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          feedback.innerHTML = `
+            <span class="text-success">
+              <i class="bi bi-check-circle-fill"></i>
+              ✨ Thanks ${name}! Your message has been sent successfully.
+            </span>
+          `;
+          form.reset();
+        } else {
+          throw new Error("Failed");
+        }
+      })
+      .catch(() => {
+        feedback.innerHTML = `
+          <span class="text-danger">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            Oops! Something went wrong. Please try again.
+          </span>
+        `;
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<i class="bi bi-send-fill me-2"></i>Send Request`;
+
+        // auto-hide message
+        setTimeout(() => {
+          feedback.innerHTML = "";
+        }, 5000);
+      });
+  });
+}
+  // 6. Ripple effect for buttons
+  const allBtns = document.querySelectorAll('.btn-orange, .btn-outline-orange');
+  allBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      let ripple = document.createElement('span');
+      ripple.classList.add('ripple-effect');
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = e.clientX - rect.left - size/2 + 'px';
+      ripple.style.top = e.clientY - rect.top - size/2 + 'px';
+      ripple.style.position = 'absolute';
+      ripple.style.borderRadius = '50%';
+      ripple.style.backgroundColor = 'rgba(255,255,255,0.5)';
+      ripple.style.transform = 'scale(0)';
+      ripple.style.transition = 'transform 0.5s, opacity 0.6s';
+      ripple.style.pointerEvents = 'none';
+      btn.style.position = 'relative';
+      btn.style.overflow = 'hidden';
+      btn.appendChild(ripple);
+      setTimeout(() => { ripple.style.transform = 'scale(4)'; ripple.style.opacity = '0'; }, 10);
+      setTimeout(() => { ripple.remove(); }, 600);
+    });
+  });
+  
+  // 7. Active nav links on scroll spy
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+    const navLinks = document.querySelectorAll('.nav-link-custom');
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href').substring(1);
+      if (href === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+  
+  // 8. Hover animation for stat numbers
+  const stats = document.querySelectorAll('.stat-number');
+  stats.forEach(stat => {
+    stat.addEventListener('mouseenter', () => {
+      stat.style.transform = 'scale(1.08)';
+      stat.style.transition = 'transform 0.2s';
+      stat.style.display = 'inline-block';
+    });
+    stat.addEventListener('mouseleave', () => {
+      stat.style.transform = 'scale(1)';
+    });
+  });
+  
+  // 9. Initialize slider with auto-play
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById('planSlider');
+    if (slider) {
+      new bootstrap.Carousel(slider, {
+        interval: 3000,
+        ride: 'carousel',
+        wrap: true,
+        pause: false
+      });
+    }
+  });
+  
+ // 10. Portfolio data and dynamic generation (Click-to-open external websites)
+// UPDATED: More projects added, original project 4 (Atlas Atlas) removed.
+// Added moving animation (subtle floating/translateY motion) on portfolio cards.
+const projects = [
+  {
+    title: "N.M Furnishers",
+//   // description: "An History of Style, Research and Elegance in Furniture in Pakistan Since 1972",
+    category: "Furnishers",
+    url: "https://nmfurnisher.com/",
+    image: "Images/NM_Furnishers.webp"
+  },
+  {
+    title: "Swift Security",
+//   // description: "Modern SaaS platform for AI-driven analytics. Sleek interface and powerful data insights.",
+    category: "Security",
+    url: "https://swiftguardsecurity.com/",
+    image: "Images/SwiftSecurity.webp"
+  },
+  {
+    title: "Our Courses",
+//    //description: "Food & lifestyle brand with minimalistic storytelling and recipe ecosystem.",
+    category: "Training School",
+    url: "https://ourcourses.com/",
+    image: "Images/OurCourses.webp"
+  },
+  {
+    title: "Bright Repairing",
+//   // description: "Component library for design systems. High-performance, accessible, and futuristic.",
+    category: "Services",
+    url: "https://brighthomerepair.com/",
+    image: "Images/BrightRepair.webp"
+  },
+  {
+    title: "Cover Force",
+//    description: "Animation studio specializing in kinetic typography and interactive storytelling.",
+    category: "Security Management",
+    url: "https://coverforce.app/",
+    image: "Images/CoverForce.webp"
+  },
+  {
+    title: "Blue-Sky Studies",
+//    description: "Future-ready AI research hub. Experimental interfaces & neural UX.",
+    category: "Consultancy",
+    url: "https://blueskystudies.com/",
+    image: "Images/BlueSkyStudies.webp"
+  },
+  {
+    title: "Euro Mattress",
+//    description: "Mindfulness app with serene visuals and haptic-like interactions.",
+    category: "E-Commerce",
+    url: "https://euromattress.co.uk/",
+    image: "Images/EuroMattress.webp"
+  },
+  {
+    title: "Cerberus Security",
+//    description: "Next-gen e-commerce platform, blazing fast checkout and 3D product views.",
+    category: "Security Services",
+    url: "https://cerberussec.co.uk/",
+    image: "Images/CerberusSecurity.webp"
+  },
+  {
+    title: "Finencial Management System",
+//    description: "Digital portfolio for avant-garde architects. Immersive walkthroughs.",
+    category: "Management System",
+    url: "https://cashpocket.app/",
+    image: "Images/FMS.webp"
+  },
+  {
+    title: "Cherie",
+//    description: "Experimental typography and motion branding studio.",
+    category: "Beauty & Spa",
+    url: "https://cheriebeautybychelseafalcon.com/",
+    image: "Images/Cherie.webp"
+  },
+  {
+    title: "DentiCare",
+    category: "Dental Care",
+    url: "https://denticare.ie/",
+    image: "Images/Denticare.webp"
+  }
+];
+function createCard(project) {
+  const card = document.createElement('div');
+  card.className = 'portfolio-card';
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `Open ${project.title} website in new tab`);
+
+  const imageDiv = document.createElement('div');
+  imageDiv.className = 'card-image';
+  imageDiv.style.backgroundImage = `url('${project.image}')`;
+  imageDiv.style.backgroundSize = 'cover';
+  imageDiv.style.backgroundPosition = 'center';
+  imageDiv.style.backgroundColor = '#eef2fa';
+  
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'card-content';
+  
+  const categorySpan = document.createElement('span');
+  categorySpan.className = 'card-category';
+  categorySpan.textContent = project.category;
+  
+  const titleEl = document.createElement('h3');
+  titleEl.className = 'card-title';
+  titleEl.textContent = project.title;
+  
+  const descEl = document.createElement('p');
+  descEl.className = 'card-description';
+  descEl.textContent = project.description;
+  
+  const hintSpan = document.createElement('span');
+  hintSpan.className = 'card-link-hint';
+  hintSpan.innerHTML = `Visit website 
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>`;
+  
+  contentDiv.appendChild(categorySpan);
+  contentDiv.appendChild(titleEl);
+  contentDiv.appendChild(descEl);
+  contentDiv.appendChild(hintSpan);
+  card.appendChild(imageDiv);
+  card.appendChild(contentDiv);
+  
+  const openWebsite = (e) => {
+    e.stopPropagation();
+    window.open(project.url, '_blank', 'noopener,noreferrer');
+  };
+  
+  card.addEventListener('click', openWebsite);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openWebsite(e);
+    }
+  });
+  
+  return card;
+}
+
+const gridContainer = document.getElementById('portfolioGrid');
+if (gridContainer) {
+  // Clear any existing content (optional but ensures clean state)
+  gridContainer.innerHTML = '';
+  projects.forEach(project => {
+    gridContainer.appendChild(createCard(project));
+  });
+}
+
+// Add moving animation to portfolio cards (subtle floating motion + smooth transition)
+// Also preserves existing cursor pointer and active transform
+const animationStyle = document.createElement('style');
+animationStyle.textContent = `
+  /* Base card styles assumed from existing CSS, but we reinforce the moving animation */
+  .portfolio-card {
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.3s ease, opacity 0.2s;
+    will-change: transform;
+    animation: floatMotion 4s ease-in-out infinite;
+    transform-origin: center;
+  }
+  
+  /* Different delays for staggered floating effect — adds organic movement */
+  .portfolio-card:nth-child(odd) {
+    animation-delay: 0s;
+  }
+  .portfolio-card:nth-child(3n) {
+    animation-delay: 0.6s;
+  }
+  .portfolio-card:nth-child(5n+2) {
+    animation-delay: 1.2s;
+  }
+  .portfolio-card:nth-child(7n+4) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes floatMotion {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Hover effect: enhance animation + slight scale, but keep movement smooth */
+  .portfolio-card:hover {
+    animation: hoverFloat 0.4s ease forwards, floatMotion 4s ease-in-out infinite;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  @keyframes hoverFloat {
+    0% {
+      transform: translateY(0px) scale(1);
+    }
+    100% {
+      transform: translateY(-4px) scale(1.02);
+    }
+  }
+  
+  /* Active click micro-interaction */
+  .portfolio-card:active {
+    transform: translateY(2px) scale(0.98);
+    transition: transform 0.05s;
+    animation: none; /* temporarily pause floating on click for crisp feedback */
+  }
+  
+  /* Ensure cards have base styling (just in case any missing from global CSS) */
+  .portfolio-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(0px);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+  
+  .portfolio-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+  
+  /* card image area */
+  .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+  }
+  
+  .portfolio-card:hover .card-image {
+    transform: scale(1.02);
+  }
+  
+  .card-content {
+    padding: 1.25rem;
+  }
+  
+  .card-category {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #4f46e5;
+    background: #e0e7ff;
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 2rem;
+    margin-bottom: 0.65rem;
+  }
+  
+  .card-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+  }
+  
+  .card-description {
+    font-size: 0.85rem;
+    color: #334155;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  .card-link-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4f46e5;
+    background: #eef2ff;
+    padding: 0.25rem 0.8rem;
+    border-radius: 2rem;
+    transition: background 0.2s;
+  }
+  
+  .portfolio-card:hover .card-link-hint {
+    background: #e0e7ff;
+    gap: 0.5rem;
+  }
+  
+  svg {
+    transition: transform 0.2s;
+  }
+  
+  .portfolio-card:hover svg {
+    transform: translate(2px, -2px);
+  }
+`;
+
+document.head.appendChild(animationStyle);
+
+// Add cursor pointer style for portfolio cards (ensure consistency)
+const style = document.createElement('style');
+style.textContent = `.portfolio-card { cursor: pointer; } .portfolio-card:active { transform: translateY(2px) scale(0.98); transition: transform 0.05s; }`;
+document.head.appendChild(style);
+
+// Image fallback handling
+const images = document.querySelectorAll('.card-image');
+images.forEach(imgDiv => {
+  const bgUrl = imgDiv.style.backgroundImage;
+  const urlMatch = bgUrl.match(/url\(["']?(.*?)["']?\)/);
+  if (urlMatch && urlMatch[1]) {
+    const testImage = new Image();
+    testImage.src = urlMatch[1];
+    testImage.onerror = () => {
+      imgDiv.style.backgroundImage = 'linear-gradient(135deg, #b8d0e0, #c2d9eb)';
+    };
+  }
+});
+
+// Optional: Add dynamic observer to ensure newly added cards also get the moving animation
+// Since all cards are created dynamically and inserted, the above styles already apply.
+// But we need to ensure that cards that might be added later (if any) also get the float effect.
+// Not required as per current static generation, but for completeness:
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((node) => {
+      if (node.nodeType === 1 && node.classList && node.classList.contains('portfolio-card')) {
+        // Force reflow to ensure animation applies (already covered by CSS)
+        node.style.animation = 'none';
+        node.offsetHeight; // trigger reflow
+        node.style.animation = '';
+      }
+    });
+  });
+});
+if (gridContainer) {
+  observer.observe(gridContainer, { childList: true });
+}
+
+// Console log to confirm: original project 4 removed, added 5 new projects, total count check.
+console.log(`Portfolio showcase updated: ${projects.length} projects loaded (original project 'Atlas Atlas' removed). New moving animation active.`);
+</script>
+</body>
+</html>
