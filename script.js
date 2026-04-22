@@ -291,7 +291,7 @@ const projects = [
     title: "DentiCare",
     category: "Dental Care",
     url: "https://denticare.ie/",
-    image: "Images/Denticare.webp"
+    image: "Images/DentiCare.webp"
   }
 ];
 function createCard(project) {
